@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.domloge
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [annotation-api, app-name, data, data-jpa, h2, http-client, java, java-application, jdbc-hikari, jib, junit, kubernetes, logback, management, maven, mongo-reactive, netty-server, properties, readme, shade, testcontainers]
