@@ -28,12 +28,10 @@ import io.reactivex.Single;
 @Singleton
 public class ClubRepository {
     
-    @ReflectiveAccess
-    MongoClient mongoClient;
+    private final MongoClient mongoClient;
 
     private final ClubConfiguration configuration;
 
-    @Inject
     public ClubRepository(MongoClient mongoClient, ClubConfiguration configuration) {
         this.mongoClient = mongoClient;
         this.configuration = configuration;
