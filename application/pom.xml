@@ -93,11 +93,6 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>io.micronaut.data</groupId>
-      <artifactId>micronaut-data-hibernate-jpa</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
       <groupId>io.micronaut.mongodb</groupId>
       <artifactId>micronaut-mongo-reactive</artifactId>
       <scope>compile</scope>
