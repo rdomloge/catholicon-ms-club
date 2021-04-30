@@ -29,7 +29,7 @@ import io.reactivex.Single;
 public class ClubRepository {
     
     @ReflectiveAccess
-    private final MongoClient mongoClient;
+    MongoClient mongoClient;
 
     private final ClubConfiguration configuration;
 
