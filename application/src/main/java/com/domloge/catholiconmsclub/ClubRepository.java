@@ -5,6 +5,7 @@ import static com.mongodb.client.model.Filters.and;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.validation.Valid;
 
@@ -32,7 +33,7 @@ public class ClubRepository {
 
     private final ClubConfiguration configuration;
 
-
+    @Inject
     public ClubRepository(MongoClient mongoClient, ClubConfiguration configuration) {
         this.mongoClient = mongoClient;
         this.configuration = configuration;
