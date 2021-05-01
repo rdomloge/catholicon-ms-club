@@ -31,7 +31,6 @@ public class ClubRepository {
 
     private final ClubConfiguration configuration;
 
-    @Inject
     public ClubRepository(MongoClient mongoClient, ClubConfiguration configuration) {
         this.mongoClient = mongoClient;
         this.configuration = configuration;
