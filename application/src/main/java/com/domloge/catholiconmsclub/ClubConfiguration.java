@@ -7,7 +7,6 @@ public class ClubConfiguration {
 
     private String databaseName = "club";
     private String collectionName = "clubs";
-    private String connectionUri;
 
     public String getDatabaseName() {
         return databaseName;
@@ -25,11 +24,4 @@ public class ClubConfiguration {
         this.collectionName = collectionName;
     }
 
-    public String getConnectionUri() {
-        return connectionUri;
-    }
-
-    public void setConnectionUri(String connectionUri) {
-        this.connectionUri = connectionUri;
-    }
 }

@@ -20,7 +20,6 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
-import io.micronaut.core.annotation.ReflectiveAccess;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
@@ -32,6 +31,7 @@ public class ClubRepository {
 
     private final ClubConfiguration configuration;
 
+    @Inject
     public ClubRepository(MongoClient mongoClient, ClubConfiguration configuration) {
         this.mongoClient = mongoClient;
         this.configuration = configuration;
