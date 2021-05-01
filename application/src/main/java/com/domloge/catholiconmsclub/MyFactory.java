@@ -13,6 +13,6 @@ public class MyFactory {
     
     @Singleton
     public MongoClient mongoClient() {
-        return MongoClients.create();
+        return MongoClients.create("mongodb://admin:password@10.0.0.15:27017");
     }
 }
