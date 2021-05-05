@@ -25,15 +25,15 @@ public class Club {
 	// private Contact matchSec;
 	// private Contact treasurer;
 	
-	// private List<Session> clubSessions;
-	// private List<Session> matchSessions;
+	private List<Session> clubSessions;
+	private List<Session> matchSessions;
 
     public Club() {
     }
 
-    public Club(int clubId, @NotBlank @Pattern(regexp = "[a-zA-Z ]{3,}") String clubName, int seasonId/*,
-            Contact chairMan, Contact secretary, Contact matchSec, Contact treasurer, List<Session> clubSessions,
-            List<Session> matchSessions*/) {
+    public Club(int clubId, @NotBlank @Pattern(regexp = "[a-zA-Z ]{3,}") String clubName, int seasonId,/*
+            Contact chairMan, Contact secretary, Contact matchSec, Contact treasurer,*/ List<Session> clubSessions,
+            List<Session> matchSessions) {
         this.clubId = clubId;
         this.clubName = clubName;
         this.seasonId = seasonId;
@@ -41,8 +41,8 @@ public class Club {
         // this.secretary = secretary;
         // this.matchSec = matchSec;
         // this.treasurer = treasurer;
-        // this.clubSessions = clubSessions;
-        // this.matchSessions = matchSessions;
+        this.clubSessions = clubSessions;
+        this.matchSessions = matchSessions;
     }
 
     public void fillOutRoles(String chairMan, String secretary, String matchSec, String treasurer) {
@@ -132,21 +132,21 @@ public class Club {
     //     this.treasurer = treasurer;
     // }
 
-    // public List<Session> getClubSessions() {
-    //     return clubSessions;
-    // }
+    public List<Session> getClubSessions() {
+        return clubSessions;
+    }
 
-    // public void setClubSessions(List<Session> clubSessions) {
-    //     this.clubSessions = clubSessions;
-    // }
+    public void setClubSessions(List<Session> clubSessions) {
+        this.clubSessions = clubSessions;
+    }
 
-    // public List<Session> getMatchSessions() {
-    //     return matchSessions;
-    // }
+    public List<Session> getMatchSessions() {
+        return matchSessions;
+    }
 
-    // public void setMatchSessions(List<Session> matchSessions) {
-    //     this.matchSessions = matchSessions;
-    // }
+    public void setMatchSessions(List<Session> matchSessions) {
+        this.matchSessions = matchSessions;
+    }
 
     @Override
     public String toString() {
