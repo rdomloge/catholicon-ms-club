@@ -11,7 +11,7 @@ public class Contact {
 	
 	private String email;
 	
-	private ContactRole committeeRole;
+	//private ContactRole committeeRole;
 	
 	private List<PhoneNumber> contactNumbers;
 
@@ -20,11 +20,11 @@ public class Contact {
 	public Contact() {
 	}
 
-	public Contact(String name, String email, ContactRole committeeRole, List<PhoneNumber> contactNumbers, String clubName) {
+	public Contact(String name, String email/*, ContactRole committeeRole*/, List<PhoneNumber> contactNumbers, String clubName) {
 		super();
 		this.name = name;
 		this.email = email;
-		this.committeeRole = committeeRole;
+		// this.committeeRole = committeeRole;
 		this.contactNumbers = contactNumbers;
 		this.clubName = clubName;
 	}
@@ -37,9 +37,9 @@ public class Contact {
 		return name;
 	}
 
-	public ContactRole getCommitteeRole() {
-		return committeeRole;
-	}
+	// public ContactRole getCommitteeRole() {
+	// 	return committeeRole;
+	// }
 
 	public List<PhoneNumber> getContactNumbers() {
 		return contactNumbers;
