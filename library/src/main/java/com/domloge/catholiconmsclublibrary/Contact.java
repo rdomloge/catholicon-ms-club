@@ -4,7 +4,10 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import io.micronaut.core.annotation.Introspected;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Introspected
 public class Contact {
 	
 	private String name;
