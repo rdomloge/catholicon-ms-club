@@ -2,6 +2,9 @@ package com.domloge.catholiconmsclublibrary;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.micronaut.core.annotation.Introspected;
+
+@Introspected
 public enum ContactRole {
 	CHAIRMAN("Chairman"), 
 	SECRETARY("Secretary"), 

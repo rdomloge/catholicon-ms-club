@@ -2,6 +2,9 @@ package com.domloge.catholiconmsclublibrary;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.micronaut.core.annotation.Introspected;
+
+@Introspected
 public enum PhoneNumberType {
     HOME("H", "Home"), MOBILE("M", "Mobile");
     
