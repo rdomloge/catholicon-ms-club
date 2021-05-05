@@ -23,7 +23,7 @@ public class Contact {
 	public Contact() {
 	}
 
-	public Contact(String name, String email, ContactRole committeeRole, List<PhoneNumber> contactNumbers*/, String clubName) {
+	public Contact(String name, String email, ContactRole committeeRole, List<PhoneNumber> contactNumbers, String clubName) {
 		super();
 		this.name = name;
 		this.email = email;

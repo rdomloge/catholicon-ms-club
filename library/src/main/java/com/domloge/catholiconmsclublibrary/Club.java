@@ -53,10 +53,10 @@ public class Club {
 	}
 	
 	public void fillOutPhoneNumbers(PhoneNumber[] chairManPhone, PhoneNumber[] secretaryPhone, PhoneNumber[] matchSecPhone, PhoneNumber[] treasurerPhone) {
-		// if(chairManPhone.length > 0) chairMan.setContactNumbers(Arrays.asList(chairManPhone));
-		// if(secretaryPhone.length > 0) secretary.setContactNumbers(Arrays.asList(secretaryPhone));
-		// if(matchSecPhone.length > 0) matchSec.setContactNumbers(Arrays.asList(matchSecPhone));
-		// if(treasurerPhone.length > 0) treasurer.setContactNumbers(Arrays.asList(treasurerPhone));
+		if(chairManPhone.length > 0) chairMan.setContactNumbers(Arrays.asList(chairManPhone));
+		if(secretaryPhone.length > 0) secretary.setContactNumbers(Arrays.asList(secretaryPhone));
+		if(matchSecPhone.length > 0) matchSec.setContactNumbers(Arrays.asList(matchSecPhone));
+		if(treasurerPhone.length > 0) treasurer.setContactNumbers(Arrays.asList(treasurerPhone));
 	}
 	
 	public void fillOutEmailAddresses(String chairmanEmail, String secretaryEmail, String matchSecEmail,
