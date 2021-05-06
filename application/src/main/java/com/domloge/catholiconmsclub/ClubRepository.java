@@ -37,7 +37,6 @@ public class ClubRepository {
     }
 
     public Single<List<Club>> list() {
-        // return Arrays.asList(new Club(1, "BH Pegasus"), new Club(2, "Viking"));
         return Flowable.fromPublisher(getCollection().find()).toList();
     }
 
@@ -49,6 +48,18 @@ public class ClubRepository {
         return Flowable.fromPublisher(getCollection().find(
             and(eq("clubId", clubId), eq("seasonId", season)))
             .limit(1)).firstElement();
+    }
+
+    public Single<List<Club>> find(int season) {
+        return Flowable.fromPublisher(getCollection().find(
+            eq("seasonId", season))
+            ).toList();
+    }
+
+    public Single<Long> count(int season) {
+        return Flowable.fromPublisher(getCollection().find(
+            eq("seasonId", season))
+            ).count();
     }
 
     public Single<Club> save(@Valid Club c) {
