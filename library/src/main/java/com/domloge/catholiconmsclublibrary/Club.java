@@ -30,9 +30,9 @@ public class Club {
     public Club() {
     }
 
-    public Club(int clubId, @NotBlank @Pattern(regexp = "[a-zA-Z ]{3,}") String clubName, int seasonId,
+    public Club(int clubId, @NotBlank @Pattern(regexp = "[a-zA-Z ]{3,}") String clubName, int seasonId/*,
             Contact chairMan, Contact secretary, Contact matchSec, Contact treasurer, List<Session> clubSessions,
-            List<Session> matchSessions) {
+            List<Session> matchSessions*/) {
         this.clubId = clubId;
         this.clubName = clubName;
         this.seasonId = seasonId;
