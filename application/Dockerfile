@@ -1,4 +1,7 @@
-FROM rdomloge/graalvm-21.1.0-java11:multiarch AS buildbase
+FROM rdomloge/graalvm-21.1.0-java11:multiarch AS build
+
+RUN apt-get update
+RUN apt-get install -y git wget
 
 RUN mkdir repo 
 WORKDIR /repo
@@ -9,9 +12,6 @@ RUN tar xzf apache-maven-3.8.1-bin.tar.gz
 RUN rm apache-maven-3.8.1-bin.tar.gz
 RUN ln -s apache-maven-3.8.1/bin/mvn mvn
 
-
-FROM buildbase as build
-RUN git pull
 RUN ./mvn -Dmaven.wagon.http.ssl.insecure=true -Dpackaging=native-image package
 
 
