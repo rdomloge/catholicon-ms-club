@@ -18,4 +18,8 @@ public class MyFactory {
     public MongoClient mongoClient() {
         return MongoClients.create("mongodb://admin:password@"+host+":27017");
     }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
 }
