@@ -12,14 +12,10 @@ import io.micronaut.context.annotation.Value;
 public class MyFactory {
 
     @Value("${mongoHost:defaultNotSpecified}")
-    private String host;
+    protected String host;
     
     @Singleton
     public MongoClient mongoClient() {
         return MongoClients.create("mongodb://admin:password@"+host+":27017");
-    }
-
-    public void setHost(String host) {
-        this.host = host;
     }
 }
