@@ -3,7 +3,6 @@ package com.domloge.catholiconmsclublibrary;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -20,13 +19,13 @@ public class Club {
 
     private int seasonId;
     
-    private Contact chairMan;
-	private Contact secretary;
-	private Contact matchSec;
-	private Contact treasurer;
+    // private Contact chairMan;
+	// private Contact secretary;
+	// private Contact matchSec;
+	// private Contact treasurer;
 	
-	private List<Session> clubSessions;
-	private List<Session> matchSessions;
+	// private List<Session> clubSessions;
+	// private List<Session> matchSessions;
 
     public Club() {
     }
@@ -37,43 +36,43 @@ public class Club {
         this.clubId = clubId;
         this.clubName = clubName;
         this.seasonId = seasonId;
-        this.chairMan = chairMan;
-        this.secretary = secretary;
-        this.matchSec = matchSec;
-        this.treasurer = treasurer;
-        this.clubSessions = clubSessions;
-        this.matchSessions = matchSessions;
+        // this.chairMan = chairMan;
+        // this.secretary = secretary;
+        // this.matchSec = matchSec;
+        // this.treasurer = treasurer;
+        // this.clubSessions = clubSessions;
+        // this.matchSessions = matchSessions;
     }
 
     public void fillOutRoles(String chairMan, String secretary, String matchSec, String treasurer) {
-		this.chairMan = null != ParserUtil.nullIfEmpty(chairMan) ? new Contact(chairMan) : null;
-		this.secretary = null != ParserUtil.nullIfEmpty(secretary) ? new Contact(secretary) : null;
-		this.matchSec = null != ParserUtil.nullIfEmpty(matchSec) ? new Contact(matchSec) : null;
-		this.treasurer = null != ParserUtil.nullIfEmpty(treasurer) ? new Contact(treasurer) : null;
+		// this.chairMan = null != ParserUtil.nullIfEmpty(chairMan) ? new Contact(chairMan) : null;
+		// this.secretary = null != ParserUtil.nullIfEmpty(secretary) ? new Contact(secretary) : null;
+		// this.matchSec = null != ParserUtil.nullIfEmpty(matchSec) ? new Contact(matchSec) : null;
+		// this.treasurer = null != ParserUtil.nullIfEmpty(treasurer) ? new Contact(treasurer) : null;
 	}
 	
 	public void fillOutPhoneNumbers(PhoneNumber[] chairManPhone, PhoneNumber[] secretaryPhone, PhoneNumber[] matchSecPhone, PhoneNumber[] treasurerPhone) {
-		if(chairManPhone.length > 0) chairMan.setContactNumbers(Arrays.asList(chairManPhone));
-		if(secretaryPhone.length > 0) secretary.setContactNumbers(Arrays.asList(secretaryPhone));
-		if(matchSecPhone.length > 0) matchSec.setContactNumbers(Arrays.asList(matchSecPhone));
-		if(treasurerPhone.length > 0) treasurer.setContactNumbers(Arrays.asList(treasurerPhone));
+		// if(chairManPhone.length > 0) chairMan.setContactNumbers(Arrays.asList(chairManPhone));
+		// if(secretaryPhone.length > 0) secretary.setContactNumbers(Arrays.asList(secretaryPhone));
+		// if(matchSecPhone.length > 0) matchSec.setContactNumbers(Arrays.asList(matchSecPhone));
+		// if(treasurerPhone.length > 0) treasurer.setContactNumbers(Arrays.asList(treasurerPhone));
 	}
 	
 	public void fillOutEmailAddresses(String chairmanEmail, String secretaryEmail, String matchSecEmail,
 			String treasurerEmail) {
 		
-		if(null != chairMan) {
-			chairMan.setEmail(null != ParserUtil.nullIfEmpty(chairmanEmail) ? chairmanEmail : null);
-		}
-		if(null != secretary) {
-			secretary.setEmail(null != ParserUtil.nullIfEmpty(secretaryEmail) ? secretaryEmail : null);
-		}
-		if(null != matchSec) {
-			matchSec.setEmail(null != ParserUtil.nullIfEmpty(matchSecEmail) ? matchSecEmail : null);
-		}
-		if(null != treasurer) {
-			treasurer.setEmail(null != ParserUtil.nullIfEmpty(treasurerEmail) ? treasurerEmail : null);
-		}
+		// if(null != chairMan) {
+		// 	chairMan.setEmail(null != ParserUtil.nullIfEmpty(chairmanEmail) ? chairmanEmail : null);
+		// }
+		// if(null != secretary) {
+		// 	secretary.setEmail(null != ParserUtil.nullIfEmpty(secretaryEmail) ? secretaryEmail : null);
+		// }
+		// if(null != matchSec) {
+		// 	matchSec.setEmail(null != ParserUtil.nullIfEmpty(matchSecEmail) ? matchSecEmail : null);
+		// }
+		// if(null != treasurer) {
+		// 	treasurer.setEmail(null != ParserUtil.nullIfEmpty(treasurerEmail) ? treasurerEmail : null);
+		// }
 	}
 
     public int getSeasonId() {
@@ -100,53 +99,53 @@ public class Club {
         this.clubName = clubName;
     }
 
-    public Contact getChairMan() {
-        return chairMan;
-    }
+    // public Contact getChairMan() {
+    //     return chairMan;
+    // }
 
-    public void setChairMan(Contact chairMan) {
-        this.chairMan = chairMan;
-    }
+    // public void setChairMan(Contact chairMan) {
+    //     this.chairMan = chairMan;
+    // }
 
-    public Contact getSecretary() {
-        return secretary;
-    }
+    // public Contact getSecretary() {
+    //     return secretary;
+    // }
 
-    public void setSecretary(Contact secretary) {
-        this.secretary = secretary;
-    }
+    // public void setSecretary(Contact secretary) {
+    //     this.secretary = secretary;
+    // }
 
-    public Contact getMatchSec() {
-        return matchSec;
-    }
+    // public Contact getMatchSec() {
+    //     return matchSec;
+    // }
 
-    public void setMatchSec(Contact matchSec) {
-        this.matchSec = matchSec;
-    }
+    // public void setMatchSec(Contact matchSec) {
+    //     this.matchSec = matchSec;
+    // }
 
-    public Contact getTreasurer() {
-        return treasurer;
-    }
+    // public Contact getTreasurer() {
+    //     return treasurer;
+    // }
 
-    public void setTreasurer(Contact treasurer) {
-        this.treasurer = treasurer;
-    }
+    // public void setTreasurer(Contact treasurer) {
+    //     this.treasurer = treasurer;
+    // }
 
-    public List<Session> getClubSessions() {
-        return clubSessions;
-    }
+    // public List<Session> getClubSessions() {
+    //     return clubSessions;
+    // }
 
-    public void setClubSessions(List<Session> clubSessions) {
-        this.clubSessions = clubSessions;
-    }
+    // public void setClubSessions(List<Session> clubSessions) {
+    //     this.clubSessions = clubSessions;
+    // }
 
-    public List<Session> getMatchSessions() {
-        return matchSessions;
-    }
+    // public List<Session> getMatchSessions() {
+    //     return matchSessions;
+    // }
 
-    public void setMatchSessions(List<Session> matchSessions) {
-        this.matchSessions = matchSessions;
-    }
+    // public void setMatchSessions(List<Session> matchSessions) {
+    //     this.matchSessions = matchSessions;
+    // }
 
     @Override
     public String toString() {
