@@ -70,56 +70,58 @@ public class ClubRepository {
                 );
     }
 
-    public void update(@Valid Club c) {
+    public Publisher<UpdateResult> update(@Valid Club c) {
         Bson filter = and(eq("clubId", c.getClubId()), eq("seasonId", c.getSeasonId()));
-        Publisher<UpdateResult> replaceOne = getCollection().replaceOne(filter, c);
-        replaceOne.subscribe(new Subscriber<UpdateResult>(){
+        return getCollection().replaceOne(filter, c);
+        // Publisher<UpdateResult> replaceOne = getCollection().replaceOne(filter, c);
+        // replaceOne.subscribe(new Subscriber<UpdateResult>(){
 
-            @Override
-            public void onSubscribe(Subscription s) {
-                s.request(1);
-            }
+        //     @Override
+        //     public void onSubscribe(Subscription s) {
+        //         s.request(1);
+        //     }
 
-            @Override
-            public void onNext(UpdateResult t) {
+        //     @Override
+        //     public void onNext(UpdateResult t) {
                 
-            }
+        //     }
 
-            @Override
-            public void onError(Throwable t) {
+        //     @Override
+        //     public void onError(Throwable t) {
                 
-            }
+        //     }
 
-            @Override
-            public void onComplete() {
+        //     @Override
+        //     public void onComplete() {
                 
-            }});
+        //     }});
     }
 
-    public void delete(int clubId, int season) {
+    public Publisher<DeleteResult> delete(int clubId, int season) {
         Bson filter = and(eq("clubId", clubId), eq("seasonId", season));
-        getCollection().deleteOne(filter).subscribe(new Subscriber<DeleteResult>(){
+        return getCollection().deleteOne(filter);
+        // getCollection().deleteOne(filter).subscribe(new Subscriber<DeleteResult>(){
 
-            @Override
-            public void onSubscribe(Subscription s) {
-                System.out.println("onSubscribe");
-                s.request(1);
-            }
+        //     @Override
+        //     public void onSubscribe(Subscription s) {
+        //         System.out.println("onSubscribe");
+        //         s.request(1);
+        //     }
 
-            @Override
-            public void onNext(DeleteResult t) {
-                System.out.println("onNext");
-            }
+        //     @Override
+        //     public void onNext(DeleteResult t) {
+        //         System.out.println("onNext");
+        //     }
 
-            @Override
-            public void onError(Throwable t) {
-                System.out.println("onError");
-            }
+        //     @Override
+        //     public void onError(Throwable t) {
+        //         System.out.println("onError");
+        //     }
 
-            @Override
-            public void onComplete() {
-                System.out.println("onComplete");
-            }});
+        //     @Override
+        //     public void onComplete() {
+        //         System.out.println("onComplete");
+        //     }});
     }
 
     private MongoCollection<Club> getCollection() {

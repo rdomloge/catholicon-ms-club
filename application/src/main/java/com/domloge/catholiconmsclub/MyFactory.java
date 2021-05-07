@@ -7,12 +7,16 @@ import com.mongodb.reactivestreams.client.MongoClients;
 
 import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
+import io.micronaut.context.annotation.Value;
 
 @Factory
 public class MyFactory {
+
+    @Value("${mongoHost:defaultNotSpecified}")
+    private String host;
     
     @Singleton
     public MongoClient mongoClient() {
-        return MongoClients.create("mongodb://admin:password@10.0.0.15:27017");
+        return MongoClients.create("mongodb://admin:password@"+host+":27017");
     }
 }

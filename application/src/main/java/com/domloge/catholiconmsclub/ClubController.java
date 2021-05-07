@@ -5,6 +5,10 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.domloge.catholiconmsclublibrary.Club;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
+
+import org.reactivestreams.Publisher;
 
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
@@ -47,8 +51,8 @@ public class ClubController<T extends Club> {
     }
 
     @Patch("/")
-    void updateClub(@Valid @Body T club) {
-        clubRepository.update(club);
+    Publisher<UpdateResult> updateClub(@Valid @Body T club) {
+        return clubRepository.update(club);
     }
 
     @Post("/")
@@ -57,7 +61,7 @@ public class ClubController<T extends Club> {
     }
 
     @Delete("/")
-    void delete(@QueryValue int clubId, @QueryValue int season) {
-        clubRepository.delete(clubId, season);
+    Publisher<DeleteResult> delete(@QueryValue int clubId, @QueryValue int season) {
+        return clubRepository.delete(clubId, season);
     }
 }
