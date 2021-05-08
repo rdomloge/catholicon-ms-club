@@ -51,8 +51,8 @@ public class ClubController<T extends Club> {
     }
 
     @Patch("/")
-    Publisher<UpdateResult> updateClub(@Valid @Body T club) {
-        return clubRepository.update(club);
+    void updateClub(@Valid @Body T club) {
+        clubRepository.update(club);
     }
 
     @Post("/")
@@ -61,7 +61,7 @@ public class ClubController<T extends Club> {
     }
 
     @Delete("/")
-    Publisher<DeleteResult> delete(@QueryValue int clubId, @QueryValue int season) {
-        return clubRepository.delete(clubId, season);
+    void delete(@QueryValue int clubId, @QueryValue int season) {
+        clubRepository.delete(clubId, season);
     }
 }
