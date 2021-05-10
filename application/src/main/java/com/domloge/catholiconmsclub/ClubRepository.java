@@ -5,7 +5,6 @@ import static com.mongodb.client.model.Filters.and;
 
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.validation.Valid;
 
@@ -17,8 +16,6 @@ import com.mongodb.reactivestreams.client.MongoCollection;
 
 import org.bson.conversions.Bson;
 import org.reactivestreams.Publisher;
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
 
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
@@ -70,56 +67,14 @@ public class ClubRepository {
                 );
     }
 
-    public void update(@Valid Club c) {
+    public Publisher<UpdateResult> update(@Valid Club c) {
         Bson filter = and(eq("clubId", c.getClubId()), eq("seasonId", c.getSeasonId()));
-        Publisher<UpdateResult> replaceOne = getCollection().replaceOne(filter, c);
-        replaceOne.subscribe(new Subscriber<UpdateResult>(){
-
-            @Override
-            public void onSubscribe(Subscription s) {
-                s.request(1);
-            }
-
-            @Override
-            public void onNext(UpdateResult t) {
-                
-            }
-
-            @Override
-            public void onError(Throwable t) {
-                
-            }
-
-            @Override
-            public void onComplete() {
-                
-            }});
+        return getCollection().replaceOne(filter, c);
     }
 
-    public void delete(int clubId, int season) {
+    public Publisher<DeleteResult> delete(int clubId, int season) {
         Bson filter = and(eq("clubId", clubId), eq("seasonId", season));
-        getCollection().deleteOne(filter).subscribe(new Subscriber<DeleteResult>(){
-
-            @Override
-            public void onSubscribe(Subscription s) {
-                System.out.println("onSubscribe");
-                s.request(1);
-            }
-
-            @Override
-            public void onNext(DeleteResult t) {
-                System.out.println("onNext");
-            }
-
-            @Override
-            public void onError(Throwable t) {
-                System.out.println("onError");
-            }
-
-            @Override
-            public void onComplete() {
-                System.out.println("onComplete");
-            }});
+        return getCollection().deleteOne(filter);
     }
 
     private MongoCollection<Club> getCollection() {

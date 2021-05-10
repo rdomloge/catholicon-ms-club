@@ -9,6 +9,8 @@
         </encoder>
     </appender>
 
+    <logger class="com.domloge" level="TRACE"/>
+
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
