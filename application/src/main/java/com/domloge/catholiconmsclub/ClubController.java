@@ -9,8 +9,6 @@ import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 
 import org.reactivestreams.Publisher;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
@@ -25,8 +23,6 @@ import io.reactivex.Single;
 @Controller("/clubs")
 public class ClubController<T extends Club> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ClubController.class);
-
     private final ClubRepository clubRepository;
 
     
@@ -36,43 +32,36 @@ public class ClubController<T extends Club> {
 
     @Get("/")
     Single<List<Club>> list() {
-        LOGGER.trace("list()");
         return clubRepository.list();
     }
 
     @Get("/search/findClubByClubIdAndSeasonId")
     Maybe<Club> findClubByClubIdAndSeasonId(@QueryValue int clubId, @QueryValue int season) {
-        LOGGER.trace("findClubByClubIdAndSeasonId");
         return clubRepository.find(clubId, season);
     }
 
     @Get("/search/findClubBySeason")
     Single<List<Club>> findClubBySeason(@QueryValue int season) {
-        LOGGER.trace("findClubBySeason");
         return clubRepository.find(season);
     }
 
     @Get("/search/countClubBySeason")
     Single<Long> countClubBySeason(@QueryValue int season) {
-        LOGGER.trace("countClubBySeason");
         return clubRepository.count(season);
     }
 
     @Patch("/")
-    Publisher<UpdateResult> updateClub(@Valid @Body T club) {
-        LOGGER.trace("updateClub");
-        return clubRepository.update(club);
+    void updateClub(@Valid @Body T club) {
+        clubRepository.update(club);
     }
 
     @Post("/")
     Single<Club> save(@Valid @Body T club) {
-        LOGGER.trace("save");
         return clubRepository.save(club);
     }
 
     @Delete("/")
-    Publisher<DeleteResult> delete(@QueryValue int clubId, @QueryValue int season) {
-        LOGGER.trace("delete");
-        return clubRepository.delete(clubId, season);
+    void delete(@QueryValue int clubId, @QueryValue int season) {
+        clubRepository.delete(clubId, season);
     }
 }
