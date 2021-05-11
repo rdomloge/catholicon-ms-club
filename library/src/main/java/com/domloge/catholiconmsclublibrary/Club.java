@@ -3,7 +3,6 @@ package com.domloge.catholiconmsclublibrary;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -25,6 +24,7 @@ public class Club {
 	private Contact matchSec;
 	private Contact treasurer;
 	
+    private List<Team> teams;
 	private List<Session> clubSessions;
 	private List<Session> matchSessions;
 
@@ -33,7 +33,7 @@ public class Club {
 
     public Club(int clubId, @NotBlank @Pattern(regexp = "[a-zA-Z ]{3,}") String clubName, int seasonId,
             Contact chairMan, Contact secretary, Contact matchSec, Contact treasurer, List<Session> clubSessions,
-            List<Session> matchSessions) {
+            List<Session> matchSessions, List<Team> teams) {
         this.clubId = clubId;
         this.clubName = clubName;
         this.seasonId = seasonId;
@@ -43,6 +43,7 @@ public class Club {
         this.treasurer = treasurer;
         this.clubSessions = clubSessions;
         this.matchSessions = matchSessions;
+        this.teams = teams;
     }
 
     public void fillOutRoles(String chairMan, String secretary, String matchSec, String treasurer) {
@@ -148,17 +149,35 @@ public class Club {
         this.matchSessions = matchSessions;
     }
 
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
+    }
+
     @Override
     public String toString() {
-        return "Club [clubId=" + clubId + ", clubName=" + clubName + "]";
+        return "Club [chairMan=" + chairMan + ", clubId=" + clubId + ", clubName=" + clubName + ", clubSessions="
+                + clubSessions + ", matchSec=" + matchSec + ", matchSessions=" + matchSessions + ", seasonId="
+                + seasonId + ", secretary=" + secretary + ", teams=" + teams + ", treasurer=" + treasurer + "]";
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + ((chairMan == null) ? 0 : chairMan.hashCode());
         result = prime * result + clubId;
         result = prime * result + ((clubName == null) ? 0 : clubName.hashCode());
+        result = prime * result + ((clubSessions == null) ? 0 : clubSessions.hashCode());
+        result = prime * result + ((matchSec == null) ? 0 : matchSec.hashCode());
+        result = prime * result + ((matchSessions == null) ? 0 : matchSessions.hashCode());
+        result = prime * result + seasonId;
+        result = prime * result + ((secretary == null) ? 0 : secretary.hashCode());
+        result = prime * result + ((teams == null) ? 0 : teams.hashCode());
+        result = prime * result + ((treasurer == null) ? 0 : treasurer.hashCode());
         return result;
     }
 
@@ -171,6 +190,11 @@ public class Club {
         if (getClass() != obj.getClass())
             return false;
         Club other = (Club) obj;
+        if (chairMan == null) {
+            if (other.chairMan != null)
+                return false;
+        } else if (!chairMan.equals(other.chairMan))
+            return false;
         if (clubId != other.clubId)
             return false;
         if (clubName == null) {
@@ -178,6 +202,40 @@ public class Club {
                 return false;
         } else if (!clubName.equals(other.clubName))
             return false;
+        if (clubSessions == null) {
+            if (other.clubSessions != null)
+                return false;
+        } else if (!clubSessions.equals(other.clubSessions))
+            return false;
+        if (matchSec == null) {
+            if (other.matchSec != null)
+                return false;
+        } else if (!matchSec.equals(other.matchSec))
+            return false;
+        if (matchSessions == null) {
+            if (other.matchSessions != null)
+                return false;
+        } else if (!matchSessions.equals(other.matchSessions))
+            return false;
+        if (seasonId != other.seasonId)
+            return false;
+        if (secretary == null) {
+            if (other.secretary != null)
+                return false;
+        } else if (!secretary.equals(other.secretary))
+            return false;
+        if (teams == null) {
+            if (other.teams != null)
+                return false;
+        } else if (!teams.equals(other.teams))
+            return false;
+        if (treasurer == null) {
+            if (other.treasurer != null)
+                return false;
+        } else if (!treasurer.equals(other.treasurer))
+            return false;
         return true;
     }
+
+    
 }
