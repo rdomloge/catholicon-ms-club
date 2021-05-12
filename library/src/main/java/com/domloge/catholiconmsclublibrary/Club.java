@@ -1,6 +1,7 @@
 package com.domloge.catholiconmsclublibrary;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
@@ -59,6 +60,11 @@ public class Club {
 		if(matchSecPhone.length > 0) matchSec.setContactNumbers(Arrays.asList(matchSecPhone));
 		if(treasurerPhone.length > 0) treasurer.setContactNumbers(Arrays.asList(treasurerPhone));
 	}
+
+    public void linkTeam(Team t) {
+        if(null == teams) teams = new LinkedList<>();
+        this.teams.add(t);
+    }
 	
 	public void fillOutEmailAddresses(String chairmanEmail, String secretaryEmail, String matchSecEmail,
 			String treasurerEmail) {

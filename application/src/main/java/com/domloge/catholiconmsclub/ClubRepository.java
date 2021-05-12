@@ -2,10 +2,10 @@ package com.domloge.catholiconmsclub;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.elemMatch;
 
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.validation.Valid;
 
@@ -48,6 +48,13 @@ public class ClubRepository {
         return Flowable.fromPublisher(getCollection().find(
             and(eq("clubId", clubId), eq("seasonId", season)))
             .limit(1)).firstElement();
+    }
+
+    public Maybe<Club> findClubByTeamId(int teamId) {
+        // { teams: { $elemMatch: {teamId: 4} } }
+        return Flowable.fromPublisher(getCollection().find(
+            elemMatch("teams", eq("teamId", teamId))
+        ).limit(1)).firstElement();
     }
 
     public Single<List<Club>> find(int season) {
@@ -127,4 +134,6 @@ public class ClubRepository {
                 .getDatabase(configuration.getDatabaseName())
                 .getCollection(configuration.getCollectionName(), Club.class);
     }
+
+    
 }
