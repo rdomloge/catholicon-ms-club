@@ -1,0 +1,1 @@
+docker build -t rdomloge/catholicon-ms-club-localtesting .
