@@ -41,6 +41,11 @@ public class ClubController<T extends Club> {
     }
 
     @Get("/search/findClubBySeason")
+    Maybe<Club> findClubByTeamId(@QueryValue int teamId) {
+        return clubRepository.findClubByTeamId(teamId);
+    }
+
+    @Get("/search/findClubByTeamId")
     Single<List<Club>> findClubBySeason(@QueryValue int season) {
         return clubRepository.find(season);
     }
