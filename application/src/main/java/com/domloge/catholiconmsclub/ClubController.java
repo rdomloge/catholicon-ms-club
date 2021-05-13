@@ -40,14 +40,14 @@ public class ClubController<T extends Club> {
         return clubRepository.find(clubId, season);
     }
 
-    @Get("/search/findClubBySeason")
+    @Get("/search/findClubByTeamId")
     Maybe<Club> findClubByTeamId(@QueryValue int teamId) {
         return clubRepository.findClubByTeamId(teamId);
     }
 
-    @Get("/search/findClubByTeamId")
-    Single<List<Club>> findClubBySeason(@QueryValue int teamId) {
-        return clubRepository.find(teamId);
+    @Get("/search/findClubBySeason")
+    Single<List<Club>> findClubBySeason(@QueryValue int season) {
+        return clubRepository.find(season);
     }
 
     @Get("/search/countClubBySeason")
