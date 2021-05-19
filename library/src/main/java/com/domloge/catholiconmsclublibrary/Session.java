@@ -72,4 +72,59 @@ public class Session {
 	public void setEnd(String end) {
 		this.end = end;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((days == null) ? 0 : days.hashCode());
+		result = prime * result + ((end == null) ? 0 : end.hashCode());
+		result = prime * result + ((locationAddr == null) ? 0 : locationAddr.hashCode());
+		result = prime * result + ((locationName == null) ? 0 : locationName.hashCode());
+		result = prime * result + ((numCourts == null) ? 0 : numCourts.hashCode());
+		result = prime * result + ((start == null) ? 0 : start.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Session other = (Session) obj;
+		if (days == null) {
+			if (other.days != null)
+				return false;
+		} else if (!days.equals(other.days))
+			return false;
+		if (end == null) {
+			if (other.end != null)
+				return false;
+		} else if (!end.equals(other.end))
+			return false;
+		if (locationAddr == null) {
+			if (other.locationAddr != null)
+				return false;
+		} else if (!locationAddr.equals(other.locationAddr))
+			return false;
+		if (locationName == null) {
+			if (other.locationName != null)
+				return false;
+		} else if (!locationName.equals(other.locationName))
+			return false;
+		if (numCourts == null) {
+			if (other.numCourts != null)
+				return false;
+		} else if (!numCourts.equals(other.numCourts))
+			return false;
+		if (start == null) {
+			if (other.start != null)
+				return false;
+		} else if (!start.equals(other.start))
+			return false;
+		return true;
+	}
 }
