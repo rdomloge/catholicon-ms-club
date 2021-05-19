@@ -48,10 +48,10 @@ public class Club {
     }
 
     public void fillOutRoles(String chairMan, String secretary, String matchSec, String treasurer) {
-		this.chairMan = null != ParserUtil.nullIfEmpty(chairMan) ? new Contact(chairMan) : null;
-		this.secretary = null != ParserUtil.nullIfEmpty(secretary) ? new Contact(secretary) : null;
-		this.matchSec = null != ParserUtil.nullIfEmpty(matchSec) ? new Contact(matchSec) : null;
-		this.treasurer = null != ParserUtil.nullIfEmpty(treasurer) ? new Contact(treasurer) : null;
+		this.chairMan = null != CommonUtil.nullIfEmpty(chairMan) ? new Contact(chairMan) : null;
+		this.secretary = null != CommonUtil.nullIfEmpty(secretary) ? new Contact(secretary) : null;
+		this.matchSec = null != CommonUtil.nullIfEmpty(matchSec) ? new Contact(matchSec) : null;
+		this.treasurer = null != CommonUtil.nullIfEmpty(treasurer) ? new Contact(treasurer) : null;
 	}
 	
 	public void fillOutPhoneNumbers(PhoneNumber[] chairManPhone, PhoneNumber[] secretaryPhone, PhoneNumber[] matchSecPhone, PhoneNumber[] treasurerPhone) {
@@ -70,16 +70,16 @@ public class Club {
 			String treasurerEmail) {
 		
 		if(null != chairMan) {
-			chairMan.setEmail(null != ParserUtil.nullIfEmpty(chairmanEmail) ? chairmanEmail : null);
+			chairMan.setEmail(null != CommonUtil.nullIfEmpty(chairmanEmail) ? chairmanEmail : null);
 		}
 		if(null != secretary) {
-			secretary.setEmail(null != ParserUtil.nullIfEmpty(secretaryEmail) ? secretaryEmail : null);
+			secretary.setEmail(null != CommonUtil.nullIfEmpty(secretaryEmail) ? secretaryEmail : null);
 		}
 		if(null != matchSec) {
-			matchSec.setEmail(null != ParserUtil.nullIfEmpty(matchSecEmail) ? matchSecEmail : null);
+			matchSec.setEmail(null != CommonUtil.nullIfEmpty(matchSecEmail) ? matchSecEmail : null);
 		}
 		if(null != treasurer) {
-			treasurer.setEmail(null != ParserUtil.nullIfEmpty(treasurerEmail) ? treasurerEmail : null);
+			treasurer.setEmail(null != CommonUtil.nullIfEmpty(treasurerEmail) ? treasurerEmail : null);
 		}
 	}
 
@@ -211,7 +211,7 @@ public class Club {
         if (clubSessions == null) {
             if (other.clubSessions != null)
                 return false;
-        } else if (!clubSessions.equals(other.clubSessions))
+        } else if (! CommonUtil.compare(clubSessions, other.clubSessions))
             return false;
         if (matchSec == null) {
             if (other.matchSec != null)
@@ -221,7 +221,7 @@ public class Club {
         if (matchSessions == null) {
             if (other.matchSessions != null)
                 return false;
-        } else if (!matchSessions.equals(other.matchSessions))
+        } else if (! CommonUtil.compare(matchSessions, other.matchSessions))
             return false;
         if (seasonId != other.seasonId)
             return false;
@@ -233,7 +233,7 @@ public class Club {
         if (teams == null) {
             if (other.teams != null)
                 return false;
-        } else if (!teams.equals(other.teams))
+        } else if (! CommonUtil.compare(teams, other.teams))
             return false;
         if (treasurer == null) {
             if (other.treasurer != null)

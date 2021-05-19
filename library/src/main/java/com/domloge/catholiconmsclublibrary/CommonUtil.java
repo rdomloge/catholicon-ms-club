@@ -1,8 +1,10 @@
 package com.domloge.catholiconmsclublibrary;
 
+import java.util.List;
+
 import io.micronaut.core.util.StringUtils;
 
-public class ParserUtil {
+public class CommonUtil {
     
     /**
      * Returns a copy of the string, with leading and trailing whitespace
@@ -56,4 +58,17 @@ public class ParserUtil {
 		if(null == s || StringUtils.isEmpty(trim(s))) return null;
 		return s;
 	}
+
+    public static boolean compare(List<?> l1, List<?> l2) {
+        if(null == l1 && null == l2) return true;
+        if(null == l1 && null != l2) return false;
+        if(null != l1 && null == l2) return false;
+
+        if(l1.size() == l2.size()) {
+            for (int i = 0; i < l1.size(); i++) {
+                if( ! l1.get(i).equals(l2.get(i))) return false;
+            }
+        }
+        return true;
+    }
 }
