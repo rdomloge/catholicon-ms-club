@@ -1,0 +1,1 @@
+docker run --rm -ti -p 8080:8080 -e MONGO_HOST=10.0.0.15 -e MONGO_USER=admin -e MONGO_PASSWORD=password rdomloge/catholicon-ms-club-localtesting

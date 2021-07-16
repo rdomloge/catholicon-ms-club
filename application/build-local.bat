@@ -1,1 +1,1 @@
-docker build -t rdomloge/catholicon-ms-club-localtesting .
+docker build --no-cache -t rdomloge/catholicon-ms-club-localtesting .
